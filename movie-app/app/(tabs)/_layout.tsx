@@ -6,11 +6,11 @@ import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
 
 const TabIcon = ({ focused, icon, title }: { focused: boolean, icon: any, title: string }) => (
     <>{
-        focused ? <ImageBackground source={images.highlight} className='flex flex-row w-full flex-1 min-w-[112px] min-h-14 mt-4 justify-center items-center rounded-full overflow-hidden' >
+        focused ? <ImageBackground source={images.highlight} className=' flex flex-row w-full flex-1 min-w-[112px] min-h-16 mt-4  justify-center items-center rounded-full ' >
             <Image source={icon} tintColor={"#151312"} className='size-5' />
             <Text className={`ml-2 text-base font-bold ${focused ? 'text-black' : 'text-gray-400'}`}>{title}</Text>
         </ImageBackground> : <View className='size-full justify-center items-center  rounded-full'>
-            <Image source={icon} tintColor={focused ? "#fff" : "#A3A3A3"} className='size-6 mt-4' />
+            <Image source={icon} tintColor={focused ? "#fff" : "#A3A3A3"} className='size-6 ' />
         </View>
     }</>
 )
@@ -23,9 +23,21 @@ const TabsLayout = () => {
                 width:'100%',
                 height:'100%',
                 alignItems:'center',
-                justifyContent:'center'
+                justifyContent:'center',
+                display:"flex"
+            },
+            tabBarStyle: {
+                backgroundColor:"#0f0D23",
+                borderRadius:50,
+                marginHorizontal:20,
+                marginBottom:36,
+                height:52,
+                position:'absolute',
+                overflow:'hidden',
+                borderWidth:1,
+                borderColor:"#0f0D23",
             }
-        }}>
+        }}> 
             <Tabs.Screen name="index" options={{
                 headerShown: false, title: 'Home', tabBarIcon: ({ focused }) =>
                     <> <TabIcon focused={focused} icon={icons.home} title={'Home'} /> </>
